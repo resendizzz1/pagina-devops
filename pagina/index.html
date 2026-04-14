@@ -9,8 +9,30 @@
 <body>
     <div class="container">
         <img src="logo.png" alt="Logo Tecmilenio" class="logo">
-        <h1>Sebastián Resendiz</h1>
-        <p>al07077120@tecmilenio.mx</p>
+        <h1>Sebastian Resendiz Cardenas</h1>
+        <p>T07077120@tecmilenio.mx</p>
+        
+        <button id="btnMostrar">Ver Información</button>
     </div>
+
+    <div id="miModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="chuerk.png" alt="Foto de Sebastian" class="foto-perfil">
+            <h2>Matrícula: T07077120</h2>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("miModal");
+        const btn = document.getElementById("btnMostrar");
+        const span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = () => modal.style.display = "block";
+        span.onclick = () => modal.style.display = "none";
+        window.onclick = (event) => {
+            if (event.target == modal) modal.style.display = "none";
+        }
+    </script>
 </body>
 </html>
