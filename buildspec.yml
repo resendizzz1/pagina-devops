@@ -11,4 +11,5 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: '.'
+  base-directory: 'pagina'
+  discard-paths: yes
