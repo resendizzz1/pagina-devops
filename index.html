@@ -7,11 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="interactive-bg"></div>
+
     <div class="container">
         <img src="logo.png" alt="Logo Tecmilenio" class="logo">
-        <h1>Sebastian Resendiz Cardenas</h1>
-        <p>T07077120@tecmilenio.mx</p>
         
+        <div id="infoPersonal" style="display: none;">
+            <h1>Sebastian Resendiz Cardenas</h1>
+            <p>T07077120@tecmilenio.mx</p>
+        </div>
+
         <button id="btnMostrar">Ver Información</button>
     </div>
 
@@ -24,11 +29,24 @@
     </div>
 
     <script>
+        const bg = document.getElementById('interactive-bg');
         const modal = document.getElementById("miModal");
+        const info = document.getElementById("infoPersonal");
         const btn = document.getElementById("btnMostrar");
         const span = document.getElementsByClassName("close")[0];
 
-        btn.onclick = () => modal.style.display = "block";
+        // Lógica del fondo interactivo
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            bg.style.background = `radial-gradient(circle at ${x}% ${y}%, #1a3a5a 0%, #0a0f1a 50%)`;
+        });
+
+        btn.onclick = () => {
+            info.style.display = "block";
+            modal.style.display = "block";
+        };
+
         span.onclick = () => modal.style.display = "none";
         window.onclick = (event) => {
             if (event.target == modal) modal.style.display = "none";
